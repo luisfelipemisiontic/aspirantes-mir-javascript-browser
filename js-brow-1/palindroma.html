@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>palindroma</title>
+</head>
+<body>
+    <label for="texto">escribe una palabra</label>
+    <input type="text" id="texto">
+    <button id="btn">Validar</button>
+    <p id="resultado"></p>
+
+    <script>
+        const input = document.querySelector('#texto');
+        const btn = document.querySelector('#btn');
+        const paragraph = document.querySelector('#resultado');
+
+        input.addEventListener('input', function(){
+            const text = input.value;
+            paragraph.textContent = text;
+        })
+
+        btn.addEventListener("click", function(){
+            const text = input.value.trim().replaceAll(' ', '').toLowerCase();
+            const textreverse = text.split('').reverse().join('');
+                if(text === textreverse){
+                    paragraph.textContent = "Es palindromo" 
+                }else{
+                    paragraph.textContent = "No es palindromo"
+                }
+                
+        })
+    </script>
+</body>
+</html>
